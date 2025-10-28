@@ -35,10 +35,10 @@ public class SoccerBall : MonoBehaviour
         // Then, move your Debug.Log() statement so that it's only called if
         //      the colliding object has the "Goal" tag.
 
-        string tag = GetComponent<Collider>().GameObject.tag;
-        if (tag == "Goal") {
-            MadeGoal();
-        }
+       // string tag = GetComponent<Collider>().GameObject.tag;
+       // if (tag == "Goal") {
+       //     MadeGoal();
+       // }
         // STEP 2 -------------------------------------------------------------
     }
 

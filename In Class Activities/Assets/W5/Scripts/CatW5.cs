@@ -60,5 +60,14 @@ public class CatW5 : MonoBehaviour
         {
             _animator.SetBool(_isWalkingName, false);
         }
+        
+        if (Input.GetKey(KeyCode.W)) {
+            transform.position += Vector3.forward * Time.deltaTime;
+        } 
+
+        if (Input.GetKey(KeyCode.S)) {
+            transform.position += Vector3.back * Time.deltaTime;
+        }
     }
+
 }
