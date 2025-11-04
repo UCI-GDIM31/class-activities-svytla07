@@ -51,7 +51,7 @@ public class BatManager : MonoBehaviour
         // Loop through all of the entries in _newTextTimers, and increase each
         //      timer's value by the amount of time that passed this frame.
         
-        for (int i = 0; i < _newTextTimers.Length, i++) {
+        for (int i = 0; i < _newTextTimers.Length i++) {
             _timeBetweenNewMessages++;
         }
         // STEP 7 -------------------------------------------------------------
@@ -107,7 +107,7 @@ public class BatManager : MonoBehaviour
         //
         // The first argument to SpawnReactionUI is same bat in the parameters
         //      of CreateReactions.
-        SpawnReactionUI(_messages[Random.Range(2)])
+        SpawnReactionUI(_messages[Random.Range(2)]);
         // STEP 5 -------------------------------------------------------------
     }
 
