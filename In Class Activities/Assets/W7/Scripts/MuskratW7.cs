@@ -47,7 +47,8 @@ public class MuskratW7 : MonoBehaviour
         
         float leftright = Input.GetAxis("Horizontal");
         
-
+        Vector3 worldUp = transform.TransformDirection(Vector3.up);
+        transform.RotateAround(transform.position, worldUp, leftright * _rotationSpeed * Time.deltaTime);
 
         // STEP 3 -------------------------------------------------------------
 
@@ -65,7 +66,12 @@ public class MuskratW7 : MonoBehaviour
         //      the Muskrat.
         // The Muskrat should never play the "flying" animation while on a
         //      bubble.
-
+        Vector3 velocity = _rigidbody.linearVelocity;
+        float speed = Mathf.Abs(velocity.magnitude);
+        bool isRunning = speed > 0.1f;
+        bool isFlying = false;
+        _animator.SetBool("running", isRunning);
+        _animator.SetBool("flying", isFlying);
 
         // STEP 5 -------------------------------------------------------------
     }
@@ -87,6 +93,8 @@ public class MuskratW7 : MonoBehaviour
 
         float leftright = Input.GetAxis("Horizontal");
 
+        transform.Rotate(Vector3.up * leftright * _rotationSpeed * Time.deltaTime);
+
         // STEP 1 -------------------------------------------------------------
 
 
@@ -96,7 +104,7 @@ public class MuskratW7 : MonoBehaviour
         // This line of code is incorrect. 
         // Replace it with a different line of code that uses 'movement' to
         //      move the Muskrat forwards and backwards.
-        transform.position += movement * Vector3.forward * _moveSpeed * Time.deltaTime;
+        transform.position += transform.forward * movement * _moveSpeed * Time.deltaTime;
 
         // STEP 2 -------------------------------------------------------------
 
@@ -107,7 +115,13 @@ public class MuskratW7 : MonoBehaviour
         // Use _rigidbody.linearVelocity.
         // You may also find the absolute value method, Mathf.Abs(), helpful:
         //      https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mathf.Abs.html
-
+        
+        Vector3 velocity = _rigidbody.linearVelocity;
+        float speed = Mathf.Abs(velocity.magnitude);
+        bool isRunning = speed > 0.1f;
+        bool isFlying = Mathf.Abs(velocity.y) > 0.1f;
+        _animator.SetBool("running", isRunning);
+        _animator.SetBool("flying", isFlying); 
         
         // STEP 4 -------------------------------------------------------------
     }

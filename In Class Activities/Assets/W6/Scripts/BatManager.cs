@@ -40,7 +40,7 @@ public class BatManager : MonoBehaviour
         // That means the bat at _bats[0] has a timer at _newTextTimers[0],
         //      the bat at _bats[1] has a timer at _newTextTimers[1],
         //      and so on.
-         _newTextTimers[] = new [_bats.Length];
+     //    _newTextTimers[] = new [_bats.Length];
         // STEP 6 -------------------------------------------------------------
     }
 
@@ -51,7 +51,7 @@ public class BatManager : MonoBehaviour
         // Loop through all of the entries in _newTextTimers, and increase each
         //      timer's value by the amount of time that passed this frame.
         
-        for (int i = 0; i < _newTextTimers.Length i++) {
+        for (int i = 0; i < _newTextTimers.Length; i++) {
             _timeBetweenNewMessages++;
         }
         // STEP 7 -------------------------------------------------------------
@@ -73,7 +73,7 @@ public class BatManager : MonoBehaviour
         //      player is less than _overlapDistance, call CreateReactions()
         //      and pass the bat in as an argument.
         
-        for (int i = 0; i < _bats.Length; i++) {
+       /* for (int i = 0; i < _bats.Length; i++) {
             if (Vector3.Distance(_playerTransform.position, _bats[i].transform.position)  < _interactDistance) {
                 _bats[i].startChase();
             }
@@ -118,12 +118,12 @@ public class BatManager : MonoBehaviour
     private void SpawnReactionUI(BatW6 bat, string message)
     {
         // STEP 8 -------------------------------------------------------------
-        // We can create multi-line comments with the /* and */ symbol.
+        // We can create multi-line comments with the /* and */
         // /* starts the comments, and */ ends it.
         // Simply uncomment the below lines by removing the /* and */ to finish.
 
         
-        int index = System.Array.IndexOf(_bats, bat);
+       /* int index = System.Array.IndexOf(_bats, bat);
         
         GridLayoutGroup layout = bat.GetComponentInChildren<GridLayoutGroup>();
         if (layout != null && _newTextTimers[index] >= _timeBetweenNewMessages)
@@ -135,5 +135,5 @@ public class BatManager : MonoBehaviour
         
 
         // STEP 8 -------------------------------------------------------------
-    }
-}
+  */  }
+ }
